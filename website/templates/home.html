@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}FindMyHuman{% endblock %}
+{% block content %}
+    <style>
+    .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+    <h1 class="text-center">These animals need homes!</h1>
+    <h3 class="text-center">Click on each listing for more information about the animal!</h3>
+    <div class="grid">
+            {% for animal in animals %}
+            <div class="card">
+                <p>Name: {{ animal.name }}</p>
+                <p>Age: {{ animal.age }}</p>
+                <!-- <p> {{ animal.days }} days on FindMyHuman</p> -->
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %} 
+
+
+
